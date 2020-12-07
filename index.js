@@ -6,11 +6,11 @@ const port = core.getInput("port");
 const user = core.getInput("root");
 const pass = core.getInput("pwd");
 
-
+var command;
 if (user && pass) {
-  const command = `sudo docker run -d -p ${port}:${port} mongo:${image_version} --auth -e MONGO_INITDB_ROOT_USERNAME=${user} -e MONGO_INITDB_ROOT_PASSWORD=${pass}`;
+  command = `sudo docker run -d -p ${port}:${port} mongo:${image_version} --auth -e MONGO_INITDB_ROOT_USERNAME=${user} -e MONGO_INITDB_ROOT_PASSWORD=${pass}`;
 } else {
-  const command = `sudo docker run -d -p ${port}:${port} mongo:${image_version}`;
+  command = `sudo docker run -d -p ${port}:${port} mongo:${image_version}`;
 }
 
 console.log("Executing the following command: ");
